@@ -1,0 +1,319 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://syngraphe.org/schemas/ai-interaction-receipt-bundle/v1",
+  "title": "Syngraphe AI Interaction Receipt Bundle structural schema v1",
+  "$comment": "Structural envelope only. Runtime parsing and verification are mandatory; cross-field, temporal, ordering, uniqueness, serialized-size, and statistical invariants are runtime-only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["profile", "proofs", "receipt", "retention_evidence", "verification_keys"],
+  "properties": {
+    "profile": { "const": "syngraphe.ai-interaction-receipt.v1" },
+    "receipt": {
+      "$ref": "https://syngraphe.org/schemas/ai-interaction-receipt/v1"
+    },
+    "proofs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider_signature",
+        "notary_quorum",
+        "tee_quote",
+        "multi_operator_inclusion",
+        "ots",
+        "key_transparency",
+        "lineage",
+        "disclosure_stance"
+      ],
+      "properties": {
+        "provider_signature": {
+          "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/providerSignature" }]
+        },
+        "notary_quorum": {
+          "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/notaryQuorum" }]
+        },
+        "tee_quote": {
+          "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/teeQuote" }]
+        },
+        "multi_operator_inclusion": {
+          "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/multiOperatorInclusion" }]
+        },
+        "ots": {
+          "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/ots" }]
+        },
+        "key_transparency": {
+          "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/keyTransparency" }]
+        },
+        "lineage": {
+          "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/lineage" }]
+        },
+        "disclosure_stance": {
+          "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/disclosureStance" }]
+        }
+      }
+    },
+    "retention_evidence": { "$ref": "#/$defs/retentionEvidence" },
+    "verification_keys": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 32,
+      "items": { "$ref": "#/$defs/verificationKey" }
+    }
+  },
+  "$defs": {
+    "base64url": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 16384,
+      "pattern": "^[A-Za-z0-9_-]+$"
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "identifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$"
+    },
+    "keyReference": {
+      "type": "string",
+      "pattern": "^(?:ed25519|ml-dsa-65):sha256:[a-f0-9]{64}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "uri": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048,
+      "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:[^\\s]+$"
+    },
+    "verificationKey": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "key_ref", "operator", "public_key", "role"],
+      "properties": {
+        "algorithm": { "enum": ["ed25519", "ml-dsa-65"] },
+        "key_ref": { "$ref": "#/$defs/keyReference" },
+        "operator": { "$ref": "#/$defs/identifier" },
+        "public_key": { "$ref": "#/$defs/base64url" },
+        "role": {
+          "enum": [
+            "credential-issuer",
+            "log-operator",
+            "notary",
+            "provider",
+            "tee-verifier"
+          ]
+        }
+      }
+    },
+    "retentionEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "declared_class",
+        "provider",
+        "retrieved_on",
+        "service_features",
+        "source_sha256",
+        "source_url"
+      ],
+      "properties": {
+        "declared_class": {
+          "enum": [
+            "anthropic-covered-model-30d",
+            "anthropic-feature-specific",
+            "anthropic-zero-data-retention",
+            "google-approved-zero-data-retention",
+            "google-feature-specific",
+            "google-paid-service-limited-abuse-monitoring",
+            "openai-abuse-monitoring-30d",
+            "openai-application-state-30d",
+            "openai-modified-abuse-monitoring",
+            "openai-zero-data-retention",
+            "undeclared"
+          ]
+        },
+        "provider": { "enum": ["anthropic", "google", "openai"] },
+        "retrieved_on": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "service_features": {
+          "type": "array",
+          "maxItems": 16,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/identifier" }
+        },
+        "source_sha256": { "$ref": "#/$defs/digest" },
+        "source_url": { "$ref": "#/$defs/uri" }
+      }
+    },
+    "providerSignature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "algorithm",
+        "covered_components",
+        "created",
+        "key_ref",
+        "receipt_digest",
+        "signature"
+      ],
+      "properties": {
+        "algorithm": { "const": "ed25519" },
+        "covered_components": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "syngraphe-request-digest" },
+            { "const": "syngraphe-response-digest" },
+            { "const": "syngraphe-model-id" },
+            { "const": "syngraphe-retention-class" },
+            { "const": "syngraphe-timestamp" },
+            { "const": "syngraphe-session-proof-envelope-digest" },
+            { "const": "syngraphe-receipt-digest" }
+          ],
+          "items": false,
+          "minItems": 7,
+          "maxItems": 7
+        },
+        "created": { "$ref": "#/$defs/count" },
+        "key_ref": { "$ref": "#/$defs/keyReference" },
+        "receipt_digest": { "$ref": "#/$defs/digest" },
+        "signature": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]{86}$"
+        }
+      }
+    },
+    "notaryQuorum": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["receipt_digest", "signatures"],
+      "properties": {
+        "receipt_digest": { "$ref": "#/$defs/digest" },
+        "signatures": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 16,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["algorithm", "key_ref", "notary_id", "signature"],
+            "properties": {
+              "algorithm": { "const": "ed25519" },
+              "key_ref": { "$ref": "#/$defs/keyReference" },
+              "notary_id": { "$ref": "#/$defs/identifier" },
+              "signature": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{86}$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "teeQuote": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["appraisal_digest", "quote_digest", "quote_format", "receipt_digest"],
+      "properties": {
+        "appraisal_digest": { "$ref": "#/$defs/digest" },
+        "quote_digest": { "$ref": "#/$defs/digest" },
+        "quote_format": { "enum": ["aws-nitro", "sev-snp", "tdx-v4"] },
+        "receipt_digest": { "$ref": "#/$defs/digest" }
+      }
+    },
+    "multiOperatorInclusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entries", "receipt_digest"],
+      "properties": {
+        "entries": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 16,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["checkpoint_digest", "inclusion_proof_digest", "log_id", "operator"],
+            "properties": {
+              "checkpoint_digest": { "$ref": "#/$defs/digest" },
+              "inclusion_proof_digest": { "$ref": "#/$defs/digest" },
+              "log_id": { "$ref": "#/$defs/uri" },
+              "operator": { "$ref": "#/$defs/identifier" }
+            }
+          }
+        },
+        "receipt_digest": { "$ref": "#/$defs/digest" }
+      }
+    },
+    "ots": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_schema", "calendar_url", "proof_digest", "receipt_digest"],
+      "properties": {
+        "artifact_schema": { "const": "https://opentimestamps.org/" },
+        "calendar_url": { "$ref": "#/$defs/uri" },
+        "proof_digest": { "$ref": "#/$defs/digest" },
+        "receipt_digest": { "$ref": "#/$defs/digest" }
+      }
+    },
+    "keyTransparency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_schema",
+        "checkpoint_digest",
+        "inclusion_proof_digest",
+        "key_ref",
+        "log_id",
+        "receipt_digest"
+      ],
+      "properties": {
+        "artifact_schema": {
+          "const": "https://syngraphe.org/schemas/key-transparency-checkpoint/v1"
+        },
+        "checkpoint_digest": { "$ref": "#/$defs/digest" },
+        "inclusion_proof_digest": { "$ref": "#/$defs/digest" },
+        "key_ref": { "$ref": "#/$defs/keyReference" },
+        "log_id": { "$ref": "#/$defs/uri" },
+        "receipt_digest": { "$ref": "#/$defs/digest" }
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_schema", "parent_receipt_digest", "receipt_digest", "relation"],
+      "properties": {
+        "artifact_schema": {
+          "const": "https://syngraphe.org/schemas/countersign-lineage-seal/v1"
+        },
+        "parent_receipt_digest": { "$ref": "#/$defs/digest" },
+        "receipt_digest": { "$ref": "#/$defs/digest" },
+        "relation": { "const": "response-derived-from" }
+      }
+    },
+    "disclosureStance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_schema", "receipt_digest", "stance", "statement_digest"],
+      "properties": {
+        "artifact_schema": {
+          "const": "https://syngraphe.org/schemas/countersign-disclosure-stance/v1"
+        },
+        "receipt_digest": { "$ref": "#/$defs/digest" },
+        "stance": { "enum": ["digest-only", "encrypted-content", "selective-disclosure"] },
+        "statement_digest": { "$ref": "#/$defs/digest" }
+      }
+    }
+  }
+}

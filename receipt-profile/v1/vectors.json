@@ -1,0 +1,1973 @@
+{
+  "schema_version": "1.0.0",
+  "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+  "generated_from": {
+    "generator": "examples/credential-consumer/scripts/generate-profile-v1-vectors.mjs",
+    "runtime": "Node.js 24.18.0"
+  },
+  "cryptography": {
+    "canonicalization": "RFC 8785 JSON Canonicalization Scheme restricted to safe integers",
+    "digest": "SHA-256",
+    "signature": "Ed25519",
+    "fixture_key_warning": "Public test keys only; never use these keys in a deployment."
+  },
+  "valid_vectors": [
+    {
+      "id": "valid-01-provider-signature",
+      "expected_receipt_digest": "sha256:d2d5274414ee60a7fb82943e22421f8f071914b91db06010a650c60fd694bad1",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": {
+            "algorithm": "ed25519",
+            "covered_components": [
+              "syngraphe-request-digest",
+              "syngraphe-response-digest",
+              "syngraphe-model-id",
+              "syngraphe-retention-class",
+              "syngraphe-timestamp",
+              "syngraphe-receipt-digest"
+            ],
+            "created": 1788523201,
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "receipt_digest": "sha256:d2d5274414ee60a7fb82943e22421f8f071914b91db06010a650c60fd694bad1",
+            "signature": "w5IxJYUDw33qNw9prtLhh-IzSAhw_19XR9XHXCZBo66GLpgwLyHb0-818hVQwgXahWkJ1_fe9KaGeUvIllNLDA"
+          },
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_01",
+          "request_digest": "sha256:bfe4284316570cf4690f969808e463cd4bc7e99353fd1e98f1ddf6af07d2924b",
+          "response_digest": "sha256:cb7f94563fb146e2072cb06d5499247e58fcc9708c1dea5f014ccbabcf0a6112",
+          "retention_class": "openai-abuse-monitoring-30d",
+          "timestamp": "2026-09-04T12:00:01Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "none",
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "provider",
+            "witness_mode": "provider-signature"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-abuse-monitoring-30d",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "operator": "provider.example",
+            "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo",
+            "role": "provider"
+          }
+        ]
+      }
+    },
+    {
+      "id": "valid-02-provider-signature",
+      "expected_receipt_digest": "sha256:76e0168ee597bea3968688e81c1f130b24df865fa6c2c4c776d7d2a744c7fd99",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": {
+            "algorithm": "ed25519",
+            "covered_components": [
+              "syngraphe-request-digest",
+              "syngraphe-response-digest",
+              "syngraphe-model-id",
+              "syngraphe-retention-class",
+              "syngraphe-timestamp",
+              "syngraphe-receipt-digest"
+            ],
+            "created": 1788523202,
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "receipt_digest": "sha256:76e0168ee597bea3968688e81c1f130b24df865fa6c2c4c776d7d2a744c7fd99",
+            "signature": "g-uh5L7UGl09RG5Hn9SH1qtO7h66rw0E_lTiMl4dNCfcIg3-CUmvRjE3eLCS3sBa1hNwTuzeCakrfGQtp9afAg"
+          },
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_02",
+          "request_digest": "sha256:4981c7dac00d064c27930d7b49c5ce930db6056aa742758fc680e91308f257fd",
+          "response_digest": "sha256:cefe40726f9a7c6da7458c01f227b0747fe176c76b0731aadcd6858797d101a9",
+          "retention_class": "openai-zero-data-retention",
+          "timestamp": "2026-09-04T12:00:02Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "none",
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "provider",
+            "witness_mode": "provider-signature"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-zero-data-retention",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "operator": "provider.example",
+            "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo",
+            "role": "provider"
+          }
+        ]
+      }
+    },
+    {
+      "id": "valid-03-provider-signature",
+      "expected_receipt_digest": "sha256:e2a00b941b722bc6327d08e5559dc2efe79ca027c5448502e4db17059b6dbbee",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": {
+            "algorithm": "ed25519",
+            "covered_components": [
+              "syngraphe-request-digest",
+              "syngraphe-response-digest",
+              "syngraphe-model-id",
+              "syngraphe-retention-class",
+              "syngraphe-timestamp",
+              "syngraphe-receipt-digest"
+            ],
+            "created": 1788523203,
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "receipt_digest": "sha256:e2a00b941b722bc6327d08e5559dc2efe79ca027c5448502e4db17059b6dbbee",
+            "signature": "_3XWdTJQP15qzy2K-HbWu3ThlohhkYyDnN_dMvPWiQ_3l6gis_WW_rMmDqLFkdCAMxzEwIfDEYqX1s53VGT_Cg"
+          },
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.anthropic.com/v1/messages",
+          "model_id": "anthropic/fixture-model",
+          "receipt_id": "air1_fixture_03",
+          "request_digest": "sha256:9e6ca7a96aff7cf8937ac1dcc57a3fe13749f3e101f3d4202b01060221ef7cce",
+          "response_digest": "sha256:417cc14ffc8c0cb07d1847b6de5fc4aad5b20de02409ccfc9226de0173ab4b07",
+          "retention_class": "anthropic-zero-data-retention",
+          "timestamp": "2026-09-04T12:00:03Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "none",
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "provider",
+            "witness_mode": "provider-signature"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "anthropic-zero-data-retention",
+          "provider": "anthropic",
+          "retrieved_on": "2026-09-04",
+          "service_features": [],
+          "source_sha256": "sha256:7c4bd54acc63db516913d1a3e1eb186b8f51992b013240ce004affec07d26fde",
+          "source_url": "https://platform.claude.com/docs/en/manage-claude/api-and-data-retention"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "operator": "provider.example",
+            "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo",
+            "role": "provider"
+          }
+        ]
+      }
+    },
+    {
+      "id": "valid-04-provider-signature",
+      "expected_receipt_digest": "sha256:ebdfdfd4ef5a8d922f5de0de0b8fd4cd12157765b5672a108bcc49c5e94ba943",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": {
+            "algorithm": "ed25519",
+            "covered_components": [
+              "syngraphe-request-digest",
+              "syngraphe-response-digest",
+              "syngraphe-model-id",
+              "syngraphe-retention-class",
+              "syngraphe-timestamp",
+              "syngraphe-receipt-digest"
+            ],
+            "created": 1788523204,
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "receipt_digest": "sha256:ebdfdfd4ef5a8d922f5de0de0b8fd4cd12157765b5672a108bcc49c5e94ba943",
+            "signature": "VBD1NlNAHtDtEUNi7rxLna6cpimzp7-rf7CmQrY7zi35Jcry0wlWSS4xxW3WKKIvrX-ApvOtH6AyOd1ftTCwAQ"
+          },
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/fixture-model:generateContent",
+          "model_id": "google/fixture-model",
+          "receipt_id": "air1_fixture_04",
+          "request_digest": "sha256:2b4fb1eac46b7730387c15b9e93d743e94555daf81c939fb8aec9fec7c7aacb1",
+          "response_digest": "sha256:cea65fe8f85180c903598026aa53537299d07cb8f9610e8ab2739d92f87a67b1",
+          "retention_class": "google-paid-service-limited-abuse-monitoring",
+          "timestamp": "2026-09-04T12:00:04Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "none",
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "google-fe",
+            "witness_mode": "provider-signature"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "google-paid-service-limited-abuse-monitoring",
+          "provider": "google",
+          "retrieved_on": "2026-09-04",
+          "service_features": [],
+          "source_sha256": "sha256:6e94614dc557248e62e21244f63c281e400c47aa03bc7b0e54fe82c5c022945a",
+          "source_url": "https://ai.google.dev/gemini-api/docs/zdr"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "operator": "provider.example",
+            "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo",
+            "role": "provider"
+          }
+        ]
+      }
+    },
+    {
+      "id": "valid-05-proxy-tls",
+      "expected_receipt_digest": "sha256:80586cb8e77ab4821e975ef0eaf3dcacb3bd9f9c779b41053011a535a2bd2b91",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+          "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": {
+            "receipt_digest": "sha256:80586cb8e77ab4821e975ef0eaf3dcacb3bd9f9c779b41053011a535a2bd2b91",
+            "signatures": [
+              {
+                "algorithm": "ed25519",
+                "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+                "notary_id": "notary-a",
+                "signature": "dbHBAOTSlLdbl6GcvLuNKkI4ZEEdA-zixgkyRiclRv9wAWikJUSULMGFuOK81RiOkQIYA58QQgQ9ZrozK-uZAg"
+              },
+              {
+                "algorithm": "ed25519",
+                "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+                "notary_id": "notary-b",
+                "signature": "b5QF3kHPFxBOgpMvvMtaBf45naH5phK6PQWPX8YcFBqv3wSjga2YKiOLqzV47WjKJ72SvdF8kHlceHjlyfFWAQ"
+              }
+            ]
+          },
+          "ots": null,
+          "provider_signature": null,
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_05",
+          "request_digest": "sha256:3a8a9d2d901d0ad706b437db3f5fe9ad9ad58d61e6724b41de91f19e492ff01b",
+          "response_digest": "sha256:3ccac6a5b7df240ab89a2c19b1b20b5f7f9fe332cd5aab947ac405a61494cc93",
+          "retention_class": "openai-application-state-30d",
+          "timestamp": "2026-09-04T12:00:05Z",
+          "trust_statement": {
+            "notaries": [
+              {
+                "id": "notary-a",
+                "jurisdiction": "US-NY",
+                "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+                "operator": "notary-a.example"
+              },
+              {
+                "id": "notary-b",
+                "jurisdiction": "DE",
+                "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+                "operator": "notary-b.example"
+              }
+            ],
+            "notary_trust_model": "threshold",
+            "quorum": {
+              "k": 2,
+              "n": 2
+            },
+            "terminating_party": "provider",
+            "witness_mode": "proxy-tls"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-application-state-30d",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [
+            "openai-responses-store"
+          ],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+            "operator": "notary-a.example",
+            "public_key": "PUAXw-hDiVqStwqnTRt-vJyYLM8uxJaMwM1V8Sr0Zgw",
+            "role": "notary"
+          },
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+            "operator": "notary-b.example",
+            "public_key": "_FHNjmIYoaONpH7QAjDwWAgW7RO6MwOsXeuRFUiQgCU",
+            "role": "notary"
+          }
+        ]
+      }
+    },
+    {
+      "id": "valid-06-mpc-tls",
+      "expected_receipt_digest": "sha256:ab4d582b040205bff02c712fb800ae02ef0d58ada0ae9e683313b46a1d27d31d",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+          "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": {
+            "receipt_digest": "sha256:ab4d582b040205bff02c712fb800ae02ef0d58ada0ae9e683313b46a1d27d31d",
+            "signatures": [
+              {
+                "algorithm": "ed25519",
+                "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+                "notary_id": "notary-a",
+                "signature": "ANQtR5DqRyucY29EcjkS0rBI5-QVAcqBrMFoI7KTwRvHjNE2-n86w-_hyNboM-eFPUpe5vbQ5eEilSQqPqchAw"
+              },
+              {
+                "algorithm": "ed25519",
+                "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+                "notary_id": "notary-b",
+                "signature": "OgooXl5ycdutLe3AAQqdAcOedXxEyXHidnqKMFPoFRCQkIM_DBnLMgwzCVOcCvGAkZJzaS92qYcMalWD8o-4DA"
+              }
+            ]
+          },
+          "ots": null,
+          "provider_signature": null,
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.anthropic.com/v1/messages",
+          "model_id": "anthropic/fixture-model",
+          "receipt_id": "air1_fixture_06",
+          "request_digest": "sha256:d9b66393500c1537aecafcc3139cde36996dc7ce4607ca75fe661afc7b664d50",
+          "response_digest": "sha256:6bd1e203badcf655d42920b5120e3e5e138f36e75e5268321fad68c8defd5867",
+          "retention_class": "anthropic-covered-model-30d",
+          "timestamp": "2026-09-04T12:00:06Z",
+          "trust_statement": {
+            "notaries": [
+              {
+                "id": "notary-a",
+                "jurisdiction": "US-NY",
+                "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+                "operator": "notary-a.example"
+              },
+              {
+                "id": "notary-b",
+                "jurisdiction": "DE",
+                "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+                "operator": "notary-b.example"
+              }
+            ],
+            "notary_trust_model": "threshold",
+            "quorum": {
+              "k": 2,
+              "n": 2
+            },
+            "terminating_party": "cloudflare",
+            "witness_mode": "mpc-tls"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "anthropic-covered-model-30d",
+          "provider": "anthropic",
+          "retrieved_on": "2026-09-04",
+          "service_features": [
+            "anthropic-covered-model-30d"
+          ],
+          "source_sha256": "sha256:7c4bd54acc63db516913d1a3e1eb186b8f51992b013240ce004affec07d26fde",
+          "source_url": "https://platform.claude.com/docs/en/manage-claude/api-and-data-retention"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+            "operator": "notary-a.example",
+            "public_key": "PUAXw-hDiVqStwqnTRt-vJyYLM8uxJaMwM1V8Sr0Zgw",
+            "role": "notary"
+          },
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+            "operator": "notary-b.example",
+            "public_key": "_FHNjmIYoaONpH7QAjDwWAgW7RO6MwOsXeuRFUiQgCU",
+            "role": "notary"
+          }
+        ]
+      }
+    },
+    {
+      "id": "valid-07-proxy-tls",
+      "expected_receipt_digest": "sha256:cdc099bea904c5f00c95c8e6912724cee3367d93884aaa07d852f404666f278c",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+          "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": {
+            "receipt_digest": "sha256:cdc099bea904c5f00c95c8e6912724cee3367d93884aaa07d852f404666f278c",
+            "signatures": [
+              {
+                "algorithm": "ed25519",
+                "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+                "notary_id": "notary-a",
+                "signature": "TGFMF-HOJcLlYWymAJVRdV6rT6SU6LwVD15I9RYCFma4cntg0W9G__LgQQSvAhQ0K83zh8Zp9eZGIuMnEyCuCw"
+              },
+              {
+                "algorithm": "ed25519",
+                "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+                "notary_id": "notary-b",
+                "signature": "yccdUHyupxJuEV5fBawctBKuwTXaTXfcf-ylaNQc8mz53d83jxq2IBj0ixdWmEYY0uVFuQquBodVHWSV5fnYAQ"
+              }
+            ]
+          },
+          "ots": null,
+          "provider_signature": null,
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/fixture-model:generateContent",
+          "model_id": "google/fixture-model",
+          "receipt_id": "air1_fixture_07",
+          "request_digest": "sha256:cf2fa12b4dc392f628ef8fc387466637f16536032bee300a988f3293d7f3a030",
+          "response_digest": "sha256:572818aa6d9738bf22e3e6d0982f2bf8bf2cc8dafaea7cb042b2a59a011d846e",
+          "retention_class": "google-feature-specific",
+          "timestamp": "2026-09-04T12:00:07Z",
+          "trust_statement": {
+            "notaries": [
+              {
+                "id": "notary-a",
+                "jurisdiction": "US-NY",
+                "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+                "operator": "notary-a.example"
+              },
+              {
+                "id": "notary-b",
+                "jurisdiction": "DE",
+                "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+                "operator": "notary-b.example"
+              }
+            ],
+            "notary_trust_model": "threshold",
+            "quorum": {
+              "k": 2,
+              "n": 2
+            },
+            "terminating_party": "provider",
+            "witness_mode": "proxy-tls"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "google-feature-specific",
+          "provider": "google",
+          "retrieved_on": "2026-09-04",
+          "service_features": [
+            "google-grounding-search"
+          ],
+          "source_sha256": "sha256:6e94614dc557248e62e21244f63c281e400c47aa03bc7b0e54fe82c5c022945a",
+          "source_url": "https://ai.google.dev/gemini-api/docs/zdr"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+            "operator": "notary-a.example",
+            "public_key": "PUAXw-hDiVqStwqnTRt-vJyYLM8uxJaMwM1V8Sr0Zgw",
+            "role": "notary"
+          },
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+            "operator": "notary-b.example",
+            "public_key": "_FHNjmIYoaONpH7QAjDwWAgW7RO6MwOsXeuRFUiQgCU",
+            "role": "notary"
+          }
+        ]
+      }
+    },
+    {
+      "id": "valid-08-mpc-tls",
+      "expected_receipt_digest": "sha256:f4601388df626ef8a3dfb2de90a0a7a7f6a4d924973587829b35878b41b1ec35",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+          "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": {
+            "receipt_digest": "sha256:f4601388df626ef8a3dfb2de90a0a7a7f6a4d924973587829b35878b41b1ec35",
+            "signatures": [
+              {
+                "algorithm": "ed25519",
+                "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+                "notary_id": "notary-a",
+                "signature": "m5hSyN9LpN8YQ8FZRXiWikNecSLIcGHN8svaHMC2Z_cRNO0LnWE86rNOPho_GseXLV-fPBnYEMHz3YbYgbABAw"
+              },
+              {
+                "algorithm": "ed25519",
+                "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+                "notary_id": "notary-b",
+                "signature": "FC4I1xG4RYFUXF9i7IY8Zhm4sN_Q5Eei6khAFfjrHVgvLVtQ_JkSRrffP9Dxu73zc_LY2TUgrDsjdNjVLOKuAg"
+              }
+            ]
+          },
+          "ots": null,
+          "provider_signature": null,
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_08",
+          "request_digest": "sha256:b01e0aeec6a76b0932bc7aba531cb9677365095b1f0ed57b84629213d85c9117",
+          "response_digest": "sha256:d36486453c0455ef40fcff765c795c2fdb4d5fcff0be16199420967d417f44b3",
+          "retention_class": "openai-modified-abuse-monitoring",
+          "timestamp": "2026-09-04T12:00:08Z",
+          "trust_statement": {
+            "notaries": [
+              {
+                "id": "notary-a",
+                "jurisdiction": "US-NY",
+                "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+                "operator": "notary-a.example"
+              },
+              {
+                "id": "notary-b",
+                "jurisdiction": "DE",
+                "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+                "operator": "notary-b.example"
+              }
+            ],
+            "notary_trust_model": "threshold",
+            "quorum": {
+              "k": 2,
+              "n": 2
+            },
+            "terminating_party": "cloudflare",
+            "witness_mode": "mpc-tls"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-modified-abuse-monitoring",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+            "operator": "notary-a.example",
+            "public_key": "PUAXw-hDiVqStwqnTRt-vJyYLM8uxJaMwM1V8Sr0Zgw",
+            "role": "notary"
+          },
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+            "operator": "notary-b.example",
+            "public_key": "_FHNjmIYoaONpH7QAjDwWAgW7RO6MwOsXeuRFUiQgCU",
+            "role": "notary"
+          }
+        ]
+      }
+    },
+    {
+      "id": "valid-09-tee-quote",
+      "expected_receipt_digest": "sha256:7c69ae9c5082306e4be1e7d46323ba1d7b66d058e4377cc66a60cd009ebe9466",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:91384c411e5af29648f17f922b402655b11ecaec1b33fc45796241963f95f202"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": null,
+          "tee_quote": {
+            "appraisal": {
+              "appraised_at": "2026-09-04T12:00:09Z",
+              "key_ref": "ed25519:sha256:91384c411e5af29648f17f922b402655b11ecaec1b33fc45796241963f95f202",
+              "result": "pass",
+              "signature": "-cMwyNQ01D_QqU698x2_n2aalgRiQDPnK0m6Gms9lPMPYzc4kgKctO7f9tB92XSM9AvDwdglg6x6ewr1bOoVDQ",
+              "verifier_id": "fixture-tee-appraiser"
+            },
+            "quote_digest": "sha256:2bb38cef3db99f0a7fed1fb0b0dbfe25c9f0e01a300d539e106f761263eb5775",
+            "quote_format": "tdx-v4",
+            "receipt_digest": "sha256:7c69ae9c5082306e4be1e7d46323ba1d7b66d058e4377cc66a60cd009ebe9466"
+          }
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_09",
+          "request_digest": "sha256:165d4b409140cf6996ac177dc2e1eb9752ae882140161d06854bf7998529d4b1",
+          "response_digest": "sha256:901e92fa28a67a9c19d118e30593ee811485bfd054ba02759c843e770a1b4f0a",
+          "retention_class": "openai-abuse-monitoring-30d",
+          "timestamp": "2026-09-04T12:00:09Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "tee",
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "provider",
+            "witness_mode": "tee-quote"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-abuse-monitoring-30d",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:91384c411e5af29648f17f922b402655b11ecaec1b33fc45796241963f95f202",
+            "operator": "tee-verifier.example",
+            "public_key": "J4EX_BRMcjQPZ9DyMW6Dhs7_vyskKMnFH-98WX8dQm4",
+            "role": "tee-verifier"
+          }
+        ]
+      }
+    },
+    {
+      "id": "valid-10-tee-quote",
+      "expected_receipt_digest": "sha256:9632bb67fb9d93e0350e09b6e520a7f853316ea1f721f10b52dfce37781b7f1d",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:91384c411e5af29648f17f922b402655b11ecaec1b33fc45796241963f95f202"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": null,
+          "tee_quote": {
+            "appraisal": {
+              "appraised_at": "2026-09-04T12:00:10Z",
+              "key_ref": "ed25519:sha256:91384c411e5af29648f17f922b402655b11ecaec1b33fc45796241963f95f202",
+              "result": "pass",
+              "signature": "i6EsaVSIaH4Y1MLeT3gB1fC3KHgy-P3kjfhFUAYBcRaGbmVML1l6Kt3EYi1F8biqGtrcCezTTF0nj3noaOxcAA",
+              "verifier_id": "fixture-tee-appraiser"
+            },
+            "quote_digest": "sha256:f1bcf625b565f7645996dbcdb660e52298cfa96231e63c9ab50505a59e15d56f",
+            "quote_format": "sev-snp",
+            "receipt_digest": "sha256:9632bb67fb9d93e0350e09b6e520a7f853316ea1f721f10b52dfce37781b7f1d"
+          }
+        },
+        "receipt": {
+          "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/fixture-model:generateContent",
+          "model_id": "google/fixture-model",
+          "receipt_id": "air1_fixture_10",
+          "request_digest": "sha256:87914d07a86f2b5fe6e506f71df739d28080db509757bef8075edd22ac5dcf08",
+          "response_digest": "sha256:b529d583cbde40749a1a21169bdd2620bfeb1ec21369f68af55af6e0af61f66d",
+          "retention_class": "google-feature-specific",
+          "timestamp": "2026-09-04T12:00:10Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "tee",
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "google-fe",
+            "witness_mode": "tee-quote"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "google-feature-specific",
+          "provider": "google",
+          "retrieved_on": "2026-09-04",
+          "service_features": [
+            "google-live-session-resumption"
+          ],
+          "source_sha256": "sha256:6e94614dc557248e62e21244f63c281e400c47aa03bc7b0e54fe82c5c022945a",
+          "source_url": "https://ai.google.dev/gemini-api/docs/zdr"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:91384c411e5af29648f17f922b402655b11ecaec1b33fc45796241963f95f202",
+            "operator": "tee-verifier.example",
+            "public_key": "J4EX_BRMcjQPZ9DyMW6Dhs7_vyskKMnFH-98WX8dQm4",
+            "role": "tee-verifier"
+          }
+        ]
+      }
+    },
+    {
+      "id": "valid-11-auxiliary-proof-slots",
+      "expected_receipt_digest": "sha256:4faa9ac00d1ecb631190441812572679ffdbea6ca0c1ad674d62e632311e44c9",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": {
+            "receipt_digest": "sha256:4faa9ac00d1ecb631190441812572679ffdbea6ca0c1ad674d62e632311e44c9",
+            "stance": "digest-only",
+            "statement_digest": "sha256:4148d7f6e51026744c7cae0d245c749c79c7c6efd1c1c0fa182a825aa71011d0"
+          },
+          "key_transparency": {
+            "checkpoint_digest": "sha256:259047c9752350162f8f4b46640af6c2af594ac700daca05f7e7cf8acf4f8e4c",
+            "inclusion_proof_digest": "sha256:4e8d143813e6105feb2e05ca34448b48bc37c87111f36a18a56a5dbebd4d7147",
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "log_id": "fixture-key-log",
+            "receipt_digest": "sha256:4faa9ac00d1ecb631190441812572679ffdbea6ca0c1ad674d62e632311e44c9"
+          },
+          "lineage": {
+            "parent_receipt_digest": "sha256:caa8f5e00885ed210f6b2eb7b142923967197be134f9c4a304e9854ae17643ad",
+            "receipt_digest": "sha256:4faa9ac00d1ecb631190441812572679ffdbea6ca0c1ad674d62e632311e44c9",
+            "relation": "response-derived-from"
+          },
+          "multi_operator_inclusion": null,
+          "notary_quorum": null,
+          "ots": {
+            "calendar_url": "https://calendar.example.test/ots",
+            "proof_digest": "sha256:383f5e6a39e9343d4a2fcd51ff23b6282586b5b852a9e026e5a9d5b7a4c47616",
+            "receipt_digest": "sha256:4faa9ac00d1ecb631190441812572679ffdbea6ca0c1ad674d62e632311e44c9"
+          },
+          "provider_signature": {
+            "algorithm": "ed25519",
+            "covered_components": [
+              "syngraphe-request-digest",
+              "syngraphe-response-digest",
+              "syngraphe-model-id",
+              "syngraphe-retention-class",
+              "syngraphe-timestamp",
+              "syngraphe-receipt-digest"
+            ],
+            "created": 1788523211,
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "receipt_digest": "sha256:4faa9ac00d1ecb631190441812572679ffdbea6ca0c1ad674d62e632311e44c9",
+            "signature": "m635moWC465uDy6pnqqXQd4zqmjgosMfEo1bznj68v3OBKiZv5NbnWf0BPfBihq1rGM1MKRZNCqMzXh0S4VPAg"
+          },
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.anthropic.com/v1/messages",
+          "model_id": "anthropic/fixture-model",
+          "receipt_id": "air1_fixture_11",
+          "request_digest": "sha256:312cbd2faa1d9a9d7b87f667801d3af811b8728bb09d9cfd418d9315609c802f",
+          "response_digest": "sha256:ea332f071b58c50c1c9253760c3d26c867b52eed7d3ddb74222581a05fc4bda9",
+          "retention_class": "anthropic-feature-specific",
+          "timestamp": "2026-09-04T12:00:11Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "none",
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "provider",
+            "witness_mode": "provider-signature"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "anthropic-feature-specific",
+          "provider": "anthropic",
+          "retrieved_on": "2026-09-04",
+          "service_features": [
+            "anthropic-code-execution"
+          ],
+          "source_sha256": "sha256:7c4bd54acc63db516913d1a3e1eb186b8f51992b013240ce004affec07d26fde",
+          "source_url": "https://platform.claude.com/docs/en/manage-claude/api-and-data-retention"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "operator": "provider.example",
+            "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo",
+            "role": "provider"
+          }
+        ]
+      }
+    },
+    {
+      "id": "valid-12-multi-operator-inclusion",
+      "expected_receipt_digest": "sha256:8d09e94bb341e0a364495cd77899d3d5f2a702f93bc3c4245b9470517ffe5d5e",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": {
+            "entries": [
+              {
+                "checkpoint_digest": "sha256:7980b437a837d58ac7e0cf36553c51dc82c013057e0cd8e55a2d2c76790dffef",
+                "inclusion_proof_digest": "sha256:95ca7897c019e6aa5fa181386f2f17f46f15da3c797b658ce30a20b5fa5fa9af",
+                "leaf_index": 7,
+                "log_id": "fixture-log-a",
+                "operator": "log-operator-a.example"
+              },
+              {
+                "checkpoint_digest": "sha256:6b35ecee6e64f5784e4b1bd7bfbf6fc984ce93d52fea1905dc9a356f5280d508",
+                "inclusion_proof_digest": "sha256:bd1c262d6215fc383f8e21687ea2080c86afde42c309edc62782b76b1e6cacd6",
+                "leaf_index": 11,
+                "log_id": "fixture-log-b",
+                "operator": "log-operator-b.example"
+              }
+            ],
+            "receipt_digest": "sha256:8d09e94bb341e0a364495cd77899d3d5f2a702f93bc3c4245b9470517ffe5d5e"
+          },
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": {
+            "algorithm": "ed25519",
+            "covered_components": [
+              "syngraphe-request-digest",
+              "syngraphe-response-digest",
+              "syngraphe-model-id",
+              "syngraphe-retention-class",
+              "syngraphe-timestamp",
+              "syngraphe-receipt-digest"
+            ],
+            "created": 1788523212,
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "receipt_digest": "sha256:8d09e94bb341e0a364495cd77899d3d5f2a702f93bc3c4245b9470517ffe5d5e",
+            "signature": "COfOe859MVmOywPizP8NuxxhJOBhffnTYzGId65D5tQRp3gKiVwb3PjgyypYLHAtRAXlqKTi8FD-gK1ikE3QBw"
+          },
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_12",
+          "request_digest": "sha256:b11869da10a34c628ba2a7f0ac3dd9b7ab0ecf312761aa0a79cefeb026f938ce",
+          "response_digest": "sha256:974f9cbde37abc1de4b645023751dde9e02217f1df60e0305b517339d3702488",
+          "retention_class": "openai-abuse-monitoring-30d",
+          "timestamp": "2026-09-04T12:00:12Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "none",
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "provider",
+            "witness_mode": "provider-signature"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-abuse-monitoring-30d",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "operator": "provider.example",
+            "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo",
+            "role": "provider"
+          }
+        ]
+      }
+    }
+  ],
+  "invalid_vectors": [
+    {
+      "id": "invalid-01-unknown-field",
+      "expected_rule": "AIR-V1-R003",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": {
+            "algorithm": "ed25519",
+            "covered_components": [
+              "syngraphe-request-digest",
+              "syngraphe-response-digest",
+              "syngraphe-model-id",
+              "syngraphe-retention-class",
+              "syngraphe-timestamp",
+              "syngraphe-receipt-digest"
+            ],
+            "created": 1788523201,
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "receipt_digest": "sha256:d2d5274414ee60a7fb82943e22421f8f071914b91db06010a650c60fd694bad1",
+            "signature": "w5IxJYUDw33qNw9prtLhh-IzSAhw_19XR9XHXCZBo66GLpgwLyHb0-818hVQwgXahWkJ1_fe9KaGeUvIllNLDA"
+          },
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_01",
+          "request_digest": "sha256:bfe4284316570cf4690f969808e463cd4bc7e99353fd1e98f1ddf6af07d2924b",
+          "response_digest": "sha256:cb7f94563fb146e2072cb06d5499247e58fcc9708c1dea5f014ccbabcf0a6112",
+          "retention_class": "openai-abuse-monitoring-30d",
+          "timestamp": "2026-09-04T12:00:01Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "none",
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "provider",
+            "witness_mode": "provider-signature"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-abuse-monitoring-30d",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "operator": "provider.example",
+            "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo",
+            "role": "provider"
+          }
+        ],
+        "unexpected": true
+      }
+    },
+    {
+      "id": "invalid-02-incomplete-trust-statement",
+      "expected_rule": "AIR-V1-R030",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": {
+            "algorithm": "ed25519",
+            "covered_components": [
+              "syngraphe-request-digest",
+              "syngraphe-response-digest",
+              "syngraphe-model-id",
+              "syngraphe-retention-class",
+              "syngraphe-timestamp",
+              "syngraphe-receipt-digest"
+            ],
+            "created": 1788523201,
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "receipt_digest": "sha256:d2d5274414ee60a7fb82943e22421f8f071914b91db06010a650c60fd694bad1",
+            "signature": "w5IxJYUDw33qNw9prtLhh-IzSAhw_19XR9XHXCZBo66GLpgwLyHb0-818hVQwgXahWkJ1_fe9KaGeUvIllNLDA"
+          },
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_01",
+          "request_digest": "sha256:bfe4284316570cf4690f969808e463cd4bc7e99353fd1e98f1ddf6af07d2924b",
+          "response_digest": "sha256:cb7f94563fb146e2072cb06d5499247e58fcc9708c1dea5f014ccbabcf0a6112",
+          "retention_class": "openai-abuse-monitoring-30d",
+          "timestamp": "2026-09-04T12:00:01Z",
+          "trust_statement": {
+            "notaries": [],
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "provider",
+            "witness_mode": "provider-signature"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-abuse-monitoring-30d",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "operator": "provider.example",
+            "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo",
+            "role": "provider"
+          }
+        ]
+      }
+    },
+    {
+      "id": "invalid-03-inconsistent-empty-quorum",
+      "expected_rule": "AIR-V1-R031",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": {
+            "algorithm": "ed25519",
+            "covered_components": [
+              "syngraphe-request-digest",
+              "syngraphe-response-digest",
+              "syngraphe-model-id",
+              "syngraphe-retention-class",
+              "syngraphe-timestamp",
+              "syngraphe-receipt-digest"
+            ],
+            "created": 1788523201,
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "receipt_digest": "sha256:d2d5274414ee60a7fb82943e22421f8f071914b91db06010a650c60fd694bad1",
+            "signature": "w5IxJYUDw33qNw9prtLhh-IzSAhw_19XR9XHXCZBo66GLpgwLyHb0-818hVQwgXahWkJ1_fe9KaGeUvIllNLDA"
+          },
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_01",
+          "request_digest": "sha256:bfe4284316570cf4690f969808e463cd4bc7e99353fd1e98f1ddf6af07d2924b",
+          "response_digest": "sha256:cb7f94563fb146e2072cb06d5499247e58fcc9708c1dea5f014ccbabcf0a6112",
+          "retention_class": "openai-abuse-monitoring-30d",
+          "timestamp": "2026-09-04T12:00:01Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "none",
+            "quorum": {
+              "k": 0,
+              "n": 1
+            },
+            "terminating_party": "provider",
+            "witness_mode": "provider-signature"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-abuse-monitoring-30d",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "operator": "provider.example",
+            "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo",
+            "role": "provider"
+          }
+        ]
+      }
+    },
+    {
+      "id": "invalid-04-proof-receipt-digest-mismatch",
+      "expected_rule": "AIR-V1-R060",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": {
+            "algorithm": "ed25519",
+            "covered_components": [
+              "syngraphe-request-digest",
+              "syngraphe-response-digest",
+              "syngraphe-model-id",
+              "syngraphe-retention-class",
+              "syngraphe-timestamp",
+              "syngraphe-receipt-digest"
+            ],
+            "created": 1788523201,
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "receipt_digest": "sha256:829939f12ef1c50dab595fbbf5d635179a24d7555b5878be18e30208ac9b6f0d",
+            "signature": "w5IxJYUDw33qNw9prtLhh-IzSAhw_19XR9XHXCZBo66GLpgwLyHb0-818hVQwgXahWkJ1_fe9KaGeUvIllNLDA"
+          },
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_01",
+          "request_digest": "sha256:bfe4284316570cf4690f969808e463cd4bc7e99353fd1e98f1ddf6af07d2924b",
+          "response_digest": "sha256:cb7f94563fb146e2072cb06d5499247e58fcc9708c1dea5f014ccbabcf0a6112",
+          "retention_class": "openai-abuse-monitoring-30d",
+          "timestamp": "2026-09-04T12:00:01Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "none",
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "provider",
+            "witness_mode": "provider-signature"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-abuse-monitoring-30d",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "operator": "provider.example",
+            "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo",
+            "role": "provider"
+          }
+        ]
+      }
+    },
+    {
+      "id": "invalid-05-provider-signature-corrupt",
+      "expected_rule": "AIR-V1-R071",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": {
+            "algorithm": "ed25519",
+            "covered_components": [
+              "syngraphe-request-digest",
+              "syngraphe-response-digest",
+              "syngraphe-model-id",
+              "syngraphe-retention-class",
+              "syngraphe-timestamp",
+              "syngraphe-receipt-digest"
+            ],
+            "created": 1788523201,
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "receipt_digest": "sha256:d2d5274414ee60a7fb82943e22421f8f071914b91db06010a650c60fd694bad1",
+            "signature": "A5IxJYUDw33qNw9prtLhh-IzSAhw_19XR9XHXCZBo66GLpgwLyHb0-818hVQwgXahWkJ1_fe9KaGeUvIllNLDA"
+          },
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_01",
+          "request_digest": "sha256:bfe4284316570cf4690f969808e463cd4bc7e99353fd1e98f1ddf6af07d2924b",
+          "response_digest": "sha256:cb7f94563fb146e2072cb06d5499247e58fcc9708c1dea5f014ccbabcf0a6112",
+          "retention_class": "openai-abuse-monitoring-30d",
+          "timestamp": "2026-09-04T12:00:01Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "none",
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "provider",
+            "witness_mode": "provider-signature"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-abuse-monitoring-30d",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "operator": "provider.example",
+            "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo",
+            "role": "provider"
+          }
+        ]
+      }
+    },
+    {
+      "id": "invalid-06-key-fingerprint-mismatch",
+      "expected_rule": "AIR-V1-R051",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": {
+            "algorithm": "ed25519",
+            "covered_components": [
+              "syngraphe-request-digest",
+              "syngraphe-response-digest",
+              "syngraphe-model-id",
+              "syngraphe-retention-class",
+              "syngraphe-timestamp",
+              "syngraphe-receipt-digest"
+            ],
+            "created": 1788523201,
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "receipt_digest": "sha256:d2d5274414ee60a7fb82943e22421f8f071914b91db06010a650c60fd694bad1",
+            "signature": "w5IxJYUDw33qNw9prtLhh-IzSAhw_19XR9XHXCZBo66GLpgwLyHb0-818hVQwgXahWkJ1_fe9KaGeUvIllNLDA"
+          },
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_01",
+          "request_digest": "sha256:bfe4284316570cf4690f969808e463cd4bc7e99353fd1e98f1ddf6af07d2924b",
+          "response_digest": "sha256:cb7f94563fb146e2072cb06d5499247e58fcc9708c1dea5f014ccbabcf0a6112",
+          "retention_class": "openai-abuse-monitoring-30d",
+          "timestamp": "2026-09-04T12:00:01Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "none",
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "provider",
+            "witness_mode": "provider-signature"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-abuse-monitoring-30d",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:b421364fb76983fca05d031e1bda64bbd1618848962e81836495a5c57223a37e",
+            "operator": "provider.example",
+            "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo",
+            "role": "provider"
+          }
+        ]
+      }
+    },
+    {
+      "id": "invalid-07-notary-quorum-shortfall",
+      "expected_rule": "AIR-V1-R081",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+          "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": {
+            "receipt_digest": "sha256:80586cb8e77ab4821e975ef0eaf3dcacb3bd9f9c779b41053011a535a2bd2b91",
+            "signatures": [
+              {
+                "algorithm": "ed25519",
+                "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+                "notary_id": "notary-a",
+                "signature": "dbHBAOTSlLdbl6GcvLuNKkI4ZEEdA-zixgkyRiclRv9wAWikJUSULMGFuOK81RiOkQIYA58QQgQ9ZrozK-uZAg"
+              }
+            ]
+          },
+          "ots": null,
+          "provider_signature": null,
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_05",
+          "request_digest": "sha256:3a8a9d2d901d0ad706b437db3f5fe9ad9ad58d61e6724b41de91f19e492ff01b",
+          "response_digest": "sha256:3ccac6a5b7df240ab89a2c19b1b20b5f7f9fe332cd5aab947ac405a61494cc93",
+          "retention_class": "openai-application-state-30d",
+          "timestamp": "2026-09-04T12:00:05Z",
+          "trust_statement": {
+            "notaries": [
+              {
+                "id": "notary-a",
+                "jurisdiction": "US-NY",
+                "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+                "operator": "notary-a.example"
+              },
+              {
+                "id": "notary-b",
+                "jurisdiction": "DE",
+                "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+                "operator": "notary-b.example"
+              }
+            ],
+            "notary_trust_model": "threshold",
+            "quorum": {
+              "k": 2,
+              "n": 2
+            },
+            "terminating_party": "provider",
+            "witness_mode": "proxy-tls"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-application-state-30d",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [
+            "openai-responses-store"
+          ],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+            "operator": "notary-a.example",
+            "public_key": "PUAXw-hDiVqStwqnTRt-vJyYLM8uxJaMwM1V8Sr0Zgw",
+            "role": "notary"
+          },
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+            "operator": "notary-b.example",
+            "public_key": "_FHNjmIYoaONpH7QAjDwWAgW7RO6MwOsXeuRFUiQgCU",
+            "role": "notary"
+          }
+        ]
+      }
+    },
+    {
+      "id": "invalid-08-notary-signature-corrupt",
+      "expected_rule": "AIR-V1-R082",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+          "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": {
+            "receipt_digest": "sha256:80586cb8e77ab4821e975ef0eaf3dcacb3bd9f9c779b41053011a535a2bd2b91",
+            "signatures": [
+              {
+                "algorithm": "ed25519",
+                "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+                "notary_id": "notary-a",
+                "signature": "AbHBAOTSlLdbl6GcvLuNKkI4ZEEdA-zixgkyRiclRv9wAWikJUSULMGFuOK81RiOkQIYA58QQgQ9ZrozK-uZAg"
+              },
+              {
+                "algorithm": "ed25519",
+                "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+                "notary_id": "notary-b",
+                "signature": "b5QF3kHPFxBOgpMvvMtaBf45naH5phK6PQWPX8YcFBqv3wSjga2YKiOLqzV47WjKJ72SvdF8kHlceHjlyfFWAQ"
+              }
+            ]
+          },
+          "ots": null,
+          "provider_signature": null,
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_05",
+          "request_digest": "sha256:3a8a9d2d901d0ad706b437db3f5fe9ad9ad58d61e6724b41de91f19e492ff01b",
+          "response_digest": "sha256:3ccac6a5b7df240ab89a2c19b1b20b5f7f9fe332cd5aab947ac405a61494cc93",
+          "retention_class": "openai-application-state-30d",
+          "timestamp": "2026-09-04T12:00:05Z",
+          "trust_statement": {
+            "notaries": [
+              {
+                "id": "notary-a",
+                "jurisdiction": "US-NY",
+                "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+                "operator": "notary-a.example"
+              },
+              {
+                "id": "notary-b",
+                "jurisdiction": "DE",
+                "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+                "operator": "notary-b.example"
+              }
+            ],
+            "notary_trust_model": "threshold",
+            "quorum": {
+              "k": 2,
+              "n": 2
+            },
+            "terminating_party": "provider",
+            "witness_mode": "proxy-tls"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-application-state-30d",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [
+            "openai-responses-store"
+          ],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+            "operator": "notary-a.example",
+            "public_key": "PUAXw-hDiVqStwqnTRt-vJyYLM8uxJaMwM1V8Sr0Zgw",
+            "role": "notary"
+          },
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:dac073e0123bdea59dd9b3bda9cf6037f63aca82627d7abcd5c4ac29dd74003e",
+            "operator": "notary-b.example",
+            "public_key": "_FHNjmIYoaONpH7QAjDwWAgW7RO6MwOsXeuRFUiQgCU",
+            "role": "notary"
+          }
+        ]
+      }
+    },
+    {
+      "id": "invalid-09-tee-proof-absent",
+      "expected_rule": "AIR-V1-R090",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:91384c411e5af29648f17f922b402655b11ecaec1b33fc45796241963f95f202"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": null,
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_09",
+          "request_digest": "sha256:165d4b409140cf6996ac177dc2e1eb9752ae882140161d06854bf7998529d4b1",
+          "response_digest": "sha256:901e92fa28a67a9c19d118e30593ee811485bfd054ba02759c843e770a1b4f0a",
+          "retention_class": "openai-abuse-monitoring-30d",
+          "timestamp": "2026-09-04T12:00:09Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "tee",
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "provider",
+            "witness_mode": "tee-quote"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-abuse-monitoring-30d",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:91384c411e5af29648f17f922b402655b11ecaec1b33fc45796241963f95f202",
+            "operator": "tee-verifier.example",
+            "public_key": "J4EX_BRMcjQPZ9DyMW6Dhs7_vyskKMnFH-98WX8dQm4",
+            "role": "tee-verifier"
+          }
+        ]
+      }
+    },
+    {
+      "id": "invalid-10-tee-appraisal-corrupt",
+      "expected_rule": "AIR-V1-R091",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:91384c411e5af29648f17f922b402655b11ecaec1b33fc45796241963f95f202"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": null,
+          "tee_quote": {
+            "appraisal": {
+              "appraised_at": "2026-09-04T12:00:09Z",
+              "key_ref": "ed25519:sha256:91384c411e5af29648f17f922b402655b11ecaec1b33fc45796241963f95f202",
+              "result": "pass",
+              "signature": "AcMwyNQ01D_QqU698x2_n2aalgRiQDPnK0m6Gms9lPMPYzc4kgKctO7f9tB92XSM9AvDwdglg6x6ewr1bOoVDQ",
+              "verifier_id": "fixture-tee-appraiser"
+            },
+            "quote_digest": "sha256:2bb38cef3db99f0a7fed1fb0b0dbfe25c9f0e01a300d539e106f761263eb5775",
+            "quote_format": "tdx-v4",
+            "receipt_digest": "sha256:7c69ae9c5082306e4be1e7d46323ba1d7b66d058e4377cc66a60cd009ebe9466"
+          }
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_09",
+          "request_digest": "sha256:165d4b409140cf6996ac177dc2e1eb9752ae882140161d06854bf7998529d4b1",
+          "response_digest": "sha256:901e92fa28a67a9c19d118e30593ee811485bfd054ba02759c843e770a1b4f0a",
+          "retention_class": "openai-abuse-monitoring-30d",
+          "timestamp": "2026-09-04T12:00:09Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "tee",
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "provider",
+            "witness_mode": "tee-quote"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-abuse-monitoring-30d",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:91384c411e5af29648f17f922b402655b11ecaec1b33fc45796241963f95f202",
+            "operator": "tee-verifier.example",
+            "public_key": "J4EX_BRMcjQPZ9DyMW6Dhs7_vyskKMnFH-98WX8dQm4",
+            "role": "tee-verifier"
+          }
+        ]
+      }
+    },
+    {
+      "id": "invalid-11-retention-contradiction",
+      "expected_rule": "AIR-V1-R105",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": null,
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": {
+            "algorithm": "ed25519",
+            "covered_components": [
+              "syngraphe-request-digest",
+              "syngraphe-response-digest",
+              "syngraphe-model-id",
+              "syngraphe-retention-class",
+              "syngraphe-timestamp",
+              "syngraphe-receipt-digest"
+            ],
+            "created": 1788523202,
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "receipt_digest": "sha256:76e0168ee597bea3968688e81c1f130b24df865fa6c2c4c776d7d2a744c7fd99",
+            "signature": "g-uh5L7UGl09RG5Hn9SH1qtO7h66rw0E_lTiMl4dNCfcIg3-CUmvRjE3eLCS3sBa1hNwTuzeCakrfGQtp9afAg"
+          },
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_02",
+          "request_digest": "sha256:4981c7dac00d064c27930d7b49c5ce930db6056aa742758fc680e91308f257fd",
+          "response_digest": "sha256:cefe40726f9a7c6da7458c01f227b0747fe176c76b0731aadcd6858797d101a9",
+          "retention_class": "openai-zero-data-retention",
+          "timestamp": "2026-09-04T12:00:02Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "none",
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "provider",
+            "witness_mode": "provider-signature"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-zero-data-retention",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [
+            "openai-responses-store"
+          ],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "operator": "provider.example",
+            "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo",
+            "role": "provider"
+          }
+        ]
+      }
+    },
+    {
+      "id": "invalid-12-single-operator-inclusion",
+      "expected_rule": "AIR-V1-R111",
+      "verification_policy": {
+        "max_future_skew_seconds": 0,
+        "trusted_key_refs": [
+          "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9"
+        ],
+        "verified_at": "2026-09-04T12:05:00Z"
+      },
+      "bundle": {
+        "profile": "syngraphe.ai-interaction-receipt.profile-v1",
+        "proofs": {
+          "disclosure_stance": null,
+          "key_transparency": null,
+          "lineage": null,
+          "multi_operator_inclusion": {
+            "entries": [
+              {
+                "checkpoint_digest": "sha256:7980b437a837d58ac7e0cf36553c51dc82c013057e0cd8e55a2d2c76790dffef",
+                "inclusion_proof_digest": "sha256:95ca7897c019e6aa5fa181386f2f17f46f15da3c797b658ce30a20b5fa5fa9af",
+                "leaf_index": 7,
+                "log_id": "fixture-log-a",
+                "operator": "log-operator-a.example"
+              },
+              {
+                "checkpoint_digest": "sha256:6b35ecee6e64f5784e4b1bd7bfbf6fc984ce93d52fea1905dc9a356f5280d508",
+                "inclusion_proof_digest": "sha256:bd1c262d6215fc383f8e21687ea2080c86afde42c309edc62782b76b1e6cacd6",
+                "leaf_index": 11,
+                "log_id": "fixture-log-b",
+                "operator": "log-operator-a.example"
+              }
+            ],
+            "receipt_digest": "sha256:8d09e94bb341e0a364495cd77899d3d5f2a702f93bc3c4245b9470517ffe5d5e"
+          },
+          "notary_quorum": null,
+          "ots": null,
+          "provider_signature": {
+            "algorithm": "ed25519",
+            "covered_components": [
+              "syngraphe-request-digest",
+              "syngraphe-response-digest",
+              "syngraphe-model-id",
+              "syngraphe-retention-class",
+              "syngraphe-timestamp",
+              "syngraphe-receipt-digest"
+            ],
+            "created": 1788523212,
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "receipt_digest": "sha256:8d09e94bb341e0a364495cd77899d3d5f2a702f93bc3c4245b9470517ffe5d5e",
+            "signature": "COfOe859MVmOywPizP8NuxxhJOBhffnTYzGId65D5tQRp3gKiVwb3PjgyypYLHAtRAXlqKTi8FD-gK1ikE3QBw"
+          },
+          "tee_quote": null
+        },
+        "receipt": {
+          "endpoint": "https://api.openai.com/v1/responses",
+          "model_id": "openai/fixture-model",
+          "receipt_id": "air1_fixture_12",
+          "request_digest": "sha256:b11869da10a34c628ba2a7f0ac3dd9b7ab0ecf312761aa0a79cefeb026f938ce",
+          "response_digest": "sha256:974f9cbde37abc1de4b645023751dde9e02217f1df60e0305b517339d3702488",
+          "retention_class": "openai-abuse-monitoring-30d",
+          "timestamp": "2026-09-04T12:00:12Z",
+          "trust_statement": {
+            "notaries": [],
+            "notary_trust_model": "none",
+            "quorum": {
+              "k": 0,
+              "n": 0
+            },
+            "terminating_party": "provider",
+            "witness_mode": "provider-signature"
+          }
+        },
+        "retention_evidence": {
+          "declared_class": "openai-abuse-monitoring-30d",
+          "provider": "openai",
+          "retrieved_on": "2026-09-04",
+          "service_features": [],
+          "source_sha256": "sha256:b6fb4faccca5f78f05c9201c44a3a85e7052ed7429650cac47319e7d914f3d25",
+          "source_url": "https://developers.openai.com/api/docs/guides/your-data"
+        },
+        "verification_keys": [
+          {
+            "algorithm": "ed25519",
+            "key_ref": "ed25519:sha256:21fe31dfa154a261626bf854046fd2271b7bed4b6abe45aa58877ef47f9721b9",
+            "operator": "provider.example",
+            "public_key": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo",
+            "role": "provider"
+          }
+        ]
+      }
+    }
+  ]
+}
