@@ -8,28 +8,28 @@
 <body>
   <main>
     <h1>Syngraphe Countersign receipt profile v1</h1>
-    <p>Source revision: <code>2d2621358e28696312200eecefc547f44fab7082</code>.</p>
+    <p>Source revision: <code>45d9a73d2a5b3695726cde9ec196f28147f0bdfb</code>.</p>
     <section>
       <h2>What a relying party receives today</h2>
       <p>The issued receipt schemas on this source revision are <code>https://syngraphe.org/schemas/ai-interaction-receipt/v1</code> (<code>schemas/ai-interaction-receipt-v1.schema.json</code>), <code>https://syngraphe.org/schemas/ai-interaction-receipt/v2</code> (<code>schemas/ai-interaction-receipt-v2.schema.json</code>), and <code>https://syngraphe.org/schemas/internal/platform-emitter-receipt/v1</code> (<code>schemas/platform-emitter-receipt-v1.schema.json</code>).</p>
       <p>The v1 and v2 interaction schemas contain the eight members required by <code>https://syngraphe.org/schemas/internal/receipt-profile-v1/receipt</code> under the same names; those eight members are the mapping to the profile receipt, while the remaining issued members stay outside that closed internal schema. The platform-emitter receipt is a batch-authority record and is not covered by receipt profile v1.</p>
       <p><code>https://syngraphe.org/schemas/countersign-scitt-receipt/v1</code> (<code>schemas/countersign-scitt-receipt-v1.schema.json</code>) maps a statement digest to a transparency-inclusion receipt, and <code>https://syngraphe.org/schemas/verified-receipt-projection/v2</code> (<code>schemas/verified-receipt-projection-v2.schema.json</code>) maps a receipt digest to a derived verification projection; neither is an issued interaction-receipt shape or a member of the internal receipt-profile-v1 family.</p>
       <p>The receipt profile is PROPOSED until C2-A admission.</p>
-      <p>Every in-scope exchange resolves to a receipt or a signed gap, and no link's verification requires the cooperation of any party: customer, provider, cloud, code host, or Syngraphe.</p>
+      <p>The test every receipt must pass: every in-scope exchange resolves to a receipt or a signed gap, and no link's verification requires the cooperation of any party: customer, provider, cloud, code host, or Syngraphe.</p>
     </section>
     <table>
       <thead>
         <tr><th>Published file</th><th>SHA-256</th><th>Source</th></tr>
       </thead>
       <tbody>
-        <tr><td><a href="receipt-profile/v1/README.md">receipt-profile/v1/README.md</a></td><td><code>4e905cf108454b73a73551795012b8402333a6e77323bb48da3b7e92d12023a9</code></td><td><code>2d2621358e28696312200eecefc547f44fab7082:docs/countersign/receipt-profile/v1/README.md</code></td></tr>
-        <tr><td><a href="receipt-profile/v1/field-inventory.md">receipt-profile/v1/field-inventory.md</a></td><td><code>1adcfab3f5a458633714f159b8c76e07066e47ee1d6d186e21732c752e8ec9fc</code></td><td><code>2d2621358e28696312200eecefc547f44fab7082:docs/countersign/receipt-profile/v1/field-inventory.md</code></td></tr>
-        <tr><td><a href="receipt-profile/v1/schemas/README.md">receipt-profile/v1/schemas/README.md</a></td><td><code>9aa6e589c2ba1e2b75ecf03701e7460b884c807aae9bfe464f5cc69003d32cd3</code></td><td><code>2d2621358e28696312200eecefc547f44fab7082:docs/countersign/receipt-profile/v1/schemas/README.md</code></td></tr>
-        <tr><td><a href="receipt-profile/v1/schemas/bundle.schema.json">receipt-profile/v1/schemas/bundle.schema.json</a></td><td><code>16fe2d7200cf861582019cbe22451361a8eb0f4f8b00cc582c2df2d7acae6e4c</code></td><td><code>2d2621358e28696312200eecefc547f44fab7082:docs/countersign/receipt-profile/v1/schemas/bundle.schema.json</code></td></tr>
-        <tr><td><a href="receipt-profile/v1/schemas/receipt.schema.json">receipt-profile/v1/schemas/receipt.schema.json</a></td><td><code>172ae5554e7120efaafb1b83dd29e04b55c15bc79f4c90df1f4afa9ddfde01c6</code></td><td><code>2d2621358e28696312200eecefc547f44fab7082:docs/countersign/receipt-profile/v1/schemas/receipt.schema.json</code></td></tr>
-        <tr><td><a href="receipt-profile/v1/vectors.json">receipt-profile/v1/vectors.json</a></td><td><code>f79c682faa866c1c8832c1ff7a4344068f3a931d27c57959057c2114d1a95a6f</code></td><td><code>2d2621358e28696312200eecefc547f44fab7082:docs/countersign/receipt-profile/v1/vectors.json</code></td></tr>
-        <tr><td><a href="schemas/ai-interaction-receipt-bundle-v1.schema.json">schemas/ai-interaction-receipt-bundle-v1.schema.json</a></td><td><code>4147fc1a7bdb47741e441f8e12787fa7c60d007acc7d3d08ca8b056610ae9447</code></td><td><code>2d2621358e28696312200eecefc547f44fab7082:site/spec/schemas/ai-interaction-receipt-bundle-v1.schema.json</code></td></tr>
-        <tr><td><a href="schemas/ai-interaction-receipt-v1.schema.json">schemas/ai-interaction-receipt-v1.schema.json</a></td><td><code>8ebfda61d83497839323ee306373b394af1fc46e75c34e201052159fe6f64c2e</code></td><td><code>2d2621358e28696312200eecefc547f44fab7082:site/spec/schemas/ai-interaction-receipt-v1.schema.json</code></td></tr>
+        <tr><td><a href="receipt-profile/v1/README.md">receipt-profile/v1/README.md</a></td><td><code>754d3d5de8da717c3ff24adb13a205686b1bad0554f83ef33eb0bada5a428c8d</code></td><td><code>45d9a73d2a5b3695726cde9ec196f28147f0bdfb:docs/countersign/receipt-profile/v1/README.md</code></td></tr>
+        <tr><td><a href="receipt-profile/v1/field-inventory.md">receipt-profile/v1/field-inventory.md</a></td><td><code>6555ecbf9b263b3b0c208c05dd830003c77b1f82f46b66d8b1606cc4adb2cb0d</code></td><td><code>45d9a73d2a5b3695726cde9ec196f28147f0bdfb:docs/countersign/receipt-profile/v1/field-inventory.md</code></td></tr>
+        <tr><td><a href="receipt-profile/v1/schemas/README.md">receipt-profile/v1/schemas/README.md</a></td><td><code>9aa6e589c2ba1e2b75ecf03701e7460b884c807aae9bfe464f5cc69003d32cd3</code></td><td><code>45d9a73d2a5b3695726cde9ec196f28147f0bdfb:docs/countersign/receipt-profile/v1/schemas/README.md</code></td></tr>
+        <tr><td><a href="receipt-profile/v1/schemas/bundle.schema.json">receipt-profile/v1/schemas/bundle.schema.json</a></td><td><code>16fe2d7200cf861582019cbe22451361a8eb0f4f8b00cc582c2df2d7acae6e4c</code></td><td><code>45d9a73d2a5b3695726cde9ec196f28147f0bdfb:docs/countersign/receipt-profile/v1/schemas/bundle.schema.json</code></td></tr>
+        <tr><td><a href="receipt-profile/v1/schemas/receipt.schema.json">receipt-profile/v1/schemas/receipt.schema.json</a></td><td><code>172ae5554e7120efaafb1b83dd29e04b55c15bc79f4c90df1f4afa9ddfde01c6</code></td><td><code>45d9a73d2a5b3695726cde9ec196f28147f0bdfb:docs/countersign/receipt-profile/v1/schemas/receipt.schema.json</code></td></tr>
+        <tr><td><a href="receipt-profile/v1/vectors.json">receipt-profile/v1/vectors.json</a></td><td><code>f79c682faa866c1c8832c1ff7a4344068f3a931d27c57959057c2114d1a95a6f</code></td><td><code>45d9a73d2a5b3695726cde9ec196f28147f0bdfb:docs/countersign/receipt-profile/v1/vectors.json</code></td></tr>
+        <tr><td><a href="schemas/ai-interaction-receipt-bundle-v1.schema.json">schemas/ai-interaction-receipt-bundle-v1.schema.json</a></td><td><code>4147fc1a7bdb47741e441f8e12787fa7c60d007acc7d3d08ca8b056610ae9447</code></td><td><code>45d9a73d2a5b3695726cde9ec196f28147f0bdfb:site/spec/schemas/ai-interaction-receipt-bundle-v1.schema.json</code></td></tr>
+        <tr><td><a href="schemas/ai-interaction-receipt-v1.schema.json">schemas/ai-interaction-receipt-v1.schema.json</a></td><td><code>8ebfda61d83497839323ee306373b394af1fc46e75c34e201052159fe6f64c2e</code></td><td><code>45d9a73d2a5b3695726cde9ec196f28147f0bdfb:site/spec/schemas/ai-interaction-receipt-v1.schema.json</code></td></tr>
       </tbody>
     </table>
     <p><a href="LICENSE-ALLOCATION.md">License allocation</a> · <a href="SHA256SUMS">Payload checksums</a></p>

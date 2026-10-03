@@ -6,7 +6,7 @@ This folder specifies the first interaction-receipt profile and the material use
 
 ### Files
 
-- `field-inventory.md` — Compares the proposed fields with six sources, pins five OutFox paths by Git blob, and records first-party retention-page digests retrieved on 2026-09-04. Status: Reference only. Current state: informative research appendix on main; never deployed.
+- `field-inventory.md` — Compares the proposed fields with five public sources and one private estate repository (informative only), and records first-party retention-page digests retrieved on 2026-09-04. Status: Reference only. Current state: informative research appendix on main; never deployed.
 - `README.md` — Contains this guide plus the preserved normative profile, including the five top-level bundle members, eight required proof slots, eleven retention classes, and stable `AIR-V1` validation rules. Status: In progress. Current state: proposed C2-A profile on main; its own text says admission has not occurred; never deployed.
 - `vectors.json` — Contains 12 accepted and 12 rejected Ed25519 test bundles spanning provider signatures, two-notary quorum modes, quote appraisals, auxiliary commitments, retention contradictions, and the exact expected `AIR-V1` failure rules. Status: Reference only. Current state: Node 24.18.0 conformance corpus with public test keys on main; never deployed.
 
@@ -295,7 +295,7 @@ These rules are mandatory for any product surface that creates, stores, displays
 
 ## 8. Receiver integration after foundation PR #63
 
-Foundation reference: `feat/consumer-conformance` at `ef98d7f5e966657ee7e87b745692be90eb4e872a`. This lane neither bases on nor merges that branch.
+Foundation reference: one private estate repository, pinned by commit, informative only, not publicly verifiable.
 
 The profile mirrors the foundation's `examples/credential-consumer/` module, script, test, and pinned-vector layout. It requires no service. After #63 merges, one manifest line in `examples/credential-consumer/package.json` may expose `node verify-profile-v1-vectors.mjs` as a named script; the existing `test/*.test.mjs` glob discovers the profile test without receiver changes. The existing closed credential webhook payload MUST NOT be widened to carry this separate bundle.
 
