@@ -1,0 +1,75 @@
+{
+  "profile": "syngraphe.notary-issuer-operator-policy.v1.1",
+  "vectors": [
+    {
+      "id": "exact-match-cap",
+      "schema_profile": "v1",
+      "evidence_class": "zktls-bound",
+      "notary_trust_model": "counterparty",
+      "notary_operators": ["syngraphe"],
+      "issuer_operator": "syngraphe",
+      "expected": {
+        "verdict": "valid",
+        "code": "IRV1-C001-ISSUER-OPERATED-NOTARY",
+        "evidence_class": "gateway-signed",
+        "product_receipt": false
+      }
+    },
+    {
+      "id": "distinct-operator-no-cap",
+      "schema_profile": "v1",
+      "evidence_class": "zktls-bound",
+      "notary_trust_model": "counterparty",
+      "notary_operators": ["Syngraphe"],
+      "issuer_operator": "syngraphe",
+      "expected": {
+        "verdict": "valid",
+        "code": "IRV1-VALID",
+        "evidence_class": "zktls-bound",
+        "product_receipt": true
+      }
+    },
+    {
+      "id": "declared-issuer-operated-cap",
+      "schema_profile": "v1.1",
+      "receipt_schema_profile": "v1.1",
+      "evidence_class": "zktls-bound",
+      "notary_trust_model": "issuer-operated",
+      "notary_operators": ["other-operator"],
+      "issuer_operator": "syngraphe",
+      "expected": {
+        "verdict": "valid",
+        "code": "IRV1-C001-ISSUER-OPERATED-NOTARY",
+        "evidence_class": "gateway-signed",
+        "product_receipt": false
+      }
+    },
+    {
+      "id": "missing-policy-indeterminate",
+      "schema_profile": "v1",
+      "evidence_class": "zktls-bound",
+      "notary_trust_model": "counterparty",
+      "notary_operators": ["other-operator"],
+      "expected": {
+        "verdict": "indeterminate",
+        "code": "IRV1-E065-ISSUER-OPERATOR-POLICY-UNAVAILABLE",
+        "evidence_class": null,
+        "product_receipt": false
+      }
+    },
+    {
+      "id": "v1-receipt-unchanged-under-v1.1",
+      "schema_profile": "v1.1",
+      "receipt_schema_profile": "v1",
+      "evidence_class": "gateway-signed",
+      "notary_trust_model": "none",
+      "notary_operators": [],
+      "expected": {
+        "verdict": "valid",
+        "code": "IRV1-VALID",
+        "evidence_class": "gateway-signed",
+        "product_receipt": false
+      }
+    }
+  ]
+}

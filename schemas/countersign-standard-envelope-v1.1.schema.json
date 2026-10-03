@@ -1,0 +1,517 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://syngraphe.org/schemas/countersign-standard-envelope/v1.1",
+  "title": "Syngraphe Countersign Standard Envelope structural schema v1.1",
+  "$comment": "Structural envelope only. Runtime parsing and verification are mandatory; cross-field, temporal, ordering, uniqueness, serialized-size, and statistical invariants are runtime-only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "profile",
+    "receipt",
+    "receipt_digest",
+    "cawg_identity_assertion",
+    "pq_sibling",
+    "scitt_receipt",
+    "extensions"
+  ],
+  "properties": {
+    "schema": {
+      "const": "https://syngraphe.org/schemas/countersign-standard-envelope/v1.1"
+    },
+    "profile": { "const": "syngraphe.countersign-standard-envelope.v1.1" },
+    "receipt": {
+      "$ref": "https://syngraphe.org/schemas/ai-interaction-receipt/v1.1"
+    },
+    "receipt_digest": { "$ref": "#/$defs/digest" },
+    "cawg_identity_assertion": { "$ref": "#/$defs/cawgIdentityAssertion" },
+    "pq_sibling": { "$ref": "#/$defs/pqSibling" },
+    "scitt_receipt": {
+      "$ref": "https://syngraphe.org/schemas/countersign-scitt-receipt/v1"
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ots", "key_transparency", "lineage", "disclosure_stance"],
+      "properties": {
+        "ots": {
+          "oneOf": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/presentExtension" },
+                {
+                  "type": "object",
+                  "properties": {
+                    "critical": { "const": false },
+                    "artifact_schema": { "const": "https://opentimestamps.org/" }
+                  }
+                }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/gapExtension" },
+                {
+                  "type": "object",
+                  "properties": {
+                    "critical": { "const": false },
+                    "gap": {
+                      "type": "object",
+                      "properties": { "component": { "const": "ots-anchoring" } }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "key_transparency": {
+          "oneOf": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/presentExtension" },
+                {
+                  "type": "object",
+                  "properties": {
+                    "critical": { "const": true },
+                    "artifact_schema": {
+                      "const": "https://syngraphe.org/schemas/key-transparency-checkpoint/v1"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/gapExtension" },
+                {
+                  "type": "object",
+                  "properties": {
+                    "critical": { "const": true },
+                    "gap": {
+                      "type": "object",
+                      "properties": { "component": { "const": "key-transparency" } }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "lineage": {
+          "oneOf": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/presentExtension" },
+                {
+                  "type": "object",
+                  "properties": {
+                    "critical": { "const": false },
+                    "artifact_schema": {
+                      "const": "https://syngraphe.org/schemas/countersign-lineage-seal/v1"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/gapExtension" },
+                {
+                  "type": "object",
+                  "properties": {
+                    "critical": { "const": false },
+                    "gap": {
+                      "type": "object",
+                      "properties": { "component": { "const": "merkle-lineage" } }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "disclosure_stance": {
+          "oneOf": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/presentExtension" },
+                {
+                  "type": "object",
+                  "properties": {
+                    "critical": { "const": true },
+                    "artifact_schema": {
+                      "const": "https://syngraphe.org/schemas/countersign-disclosure-stance/v1"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/gapExtension" },
+                {
+                  "type": "object",
+                  "properties": {
+                    "critical": { "const": true },
+                    "gap": {
+                      "type": "object",
+                      "properties": { "component": { "const": "disclosure-stance" } }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "$defs": {
+    "base64": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9+/]{43}=$"
+    },
+    "base64url": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 16384,
+      "pattern": "^[A-Za-z0-9_-]+$"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "uri": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048,
+      "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:[^\\s]+$"
+    },
+    "hashedUri": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "alg", "hash"],
+      "properties": {
+        "url": { "type": "string", "minLength": 1, "maxLength": 4096 },
+        "alg": { "const": "sha256" },
+        "hash": { "$ref": "#/$defs/base64" }
+      }
+    },
+    "signerPayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["referenced_assertions", "sig_type", "role"],
+      "properties": {
+        "referenced_assertions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 32,
+          "items": { "$ref": "#/$defs/hashedUri" }
+        },
+        "sig_type": { "const": "cawg.identity_claims_aggregation" },
+        "role": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 16,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "org.syngraphe.ai_interaction_provider",
+              "cawg.creator",
+              "cawg.editor",
+              "cawg.producer"
+            ]
+          }
+        }
+      }
+    },
+    "provider": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "$ref": "#/$defs/uri" },
+        "name": { "type": "string", "minLength": 1, "maxLength": 256 }
+      }
+    },
+    "verifiedIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "provider", "verifiedAt"],
+      "properties": {
+        "type": {
+          "enum": [
+            "cawg.affiliation",
+            "cawg.crypto_wallet",
+            "cawg.document_verification",
+            "cawg.social_media",
+            "cawg.web_site"
+          ]
+        },
+        "provider": { "$ref": "#/$defs/provider" },
+        "verifiedAt": { "$ref": "#/$defs/timestamp" },
+        "address": { "type": "string", "minLength": 1, "maxLength": 512 },
+        "name": { "type": "string", "minLength": 1, "maxLength": 256 },
+        "username": { "type": "string", "minLength": 1, "maxLength": 256 },
+        "uri": { "$ref": "#/$defs/uri" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "type": { "const": "cawg.affiliation" } },
+            "required": ["type"]
+          },
+          "then": {
+            "properties": { "name": { "type": "string" } },
+            "required": ["name"]
+          }
+        },
+        {
+          "if": {
+            "properties": { "type": { "const": "cawg.crypto_wallet" } },
+            "required": ["type"]
+          },
+          "then": {
+            "properties": { "address": { "type": "string" } },
+            "required": ["address"]
+          }
+        },
+        {
+          "if": {
+            "properties": { "type": { "const": "cawg.document_verification" } },
+            "required": ["type"]
+          },
+          "then": {
+            "properties": { "name": { "type": "string" } },
+            "required": ["name"]
+          }
+        },
+        {
+          "if": {
+            "properties": { "type": { "const": "cawg.social_media" } },
+            "required": ["type"]
+          },
+          "then": {
+            "properties": { "username": { "type": "string" } },
+            "required": ["username"]
+          }
+        },
+        {
+          "if": {
+            "properties": { "type": { "const": "cawg.web_site" } },
+            "required": ["type"]
+          },
+          "then": {
+            "properties": { "uri": { "type": "string" } },
+            "required": ["uri"]
+          }
+        }
+      ]
+    },
+    "credentialStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "statusPurpose", "statusListIndex", "statusListCredential"],
+      "properties": {
+        "id": { "$ref": "#/$defs/uri" },
+        "type": { "const": "BitstringStatusListEntry" },
+        "statusPurpose": { "const": "revocation" },
+        "statusListIndex": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,15})$"
+        },
+        "statusListCredential": { "$ref": "#/$defs/uri" }
+      }
+    },
+    "cawgCredential": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "@context",
+        "type",
+        "issuer",
+        "validFrom",
+        "credentialSubject",
+        "credentialStatus",
+        "credentialSchema"
+      ],
+      "properties": {
+        "@context": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "https://www.w3.org/ns/credentials/v2" },
+            { "const": "https://cawg.io/identity/1.1/ica/context/" },
+            {
+              "const": {
+                "syngrapheReceipt": {
+                  "@id": "https://syngraphe.org/vocab/countersign#receipt",
+                  "@type": "@json"
+                },
+                "syngrapheReceiptDigest": "https://syngraphe.org/vocab/countersign#receiptDigest",
+                "syngraphePqSiblingLinkDigest": "https://syngraphe.org/vocab/countersign#pqSiblingLinkDigest"
+              }
+            }
+          ],
+          "items": false,
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "type": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "VerifiableCredential" },
+            { "const": "IdentityClaimsAggregationCredential" }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "issuer": { "$ref": "#/$defs/uri" },
+        "validFrom": { "$ref": "#/$defs/timestamp" },
+        "credentialSubject": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "verifiedIdentities",
+            "c2paAsset",
+            "syngrapheReceipt",
+            "syngrapheReceiptDigest",
+            "syngraphePqSiblingLinkDigest"
+          ],
+          "properties": {
+            "id": { "$ref": "#/$defs/uri" },
+            "verifiedIdentities": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 16,
+              "items": { "$ref": "#/$defs/verifiedIdentity" }
+            },
+            "c2paAsset": { "$ref": "#/$defs/signerPayload" },
+            "syngrapheReceipt": {
+              "$ref": "https://syngraphe.org/schemas/ai-interaction-receipt/v1.1"
+            },
+            "syngrapheReceiptDigest": { "$ref": "#/$defs/digest" },
+            "syngraphePqSiblingLinkDigest": { "$ref": "#/$defs/digest" }
+          }
+        },
+        "credentialStatus": { "$ref": "#/$defs/credentialStatus" },
+        "credentialSchema": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["id", "type"],
+              "properties": {
+                "id": { "const": "https://cawg.io/identity/1.1/ica/schema/vc2.0/" },
+                "type": { "const": "JSONSchema" }
+              }
+            }
+          ],
+          "items": false,
+          "minItems": 1,
+          "maxItems": 1
+        }
+      }
+    },
+    "cawgIdentityAssertion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "label",
+        "algorithm",
+        "content_type",
+        "verification_method",
+        "signer_payload",
+        "credential",
+        "link_digest",
+        "artifact_digest",
+        "signature"
+      ],
+      "properties": {
+        "profile": { "const": "cawg.identity/1.2" },
+        "label": { "const": "cawg.identity" },
+        "algorithm": { "const": -8 },
+        "content_type": { "const": "application/vc" },
+        "verification_method": { "$ref": "#/$defs/uri" },
+        "signer_payload": { "$ref": "#/$defs/signerPayload" },
+        "credential": { "$ref": "#/$defs/cawgCredential" },
+        "link_digest": { "$ref": "#/$defs/digest" },
+        "artifact_digest": { "$ref": "#/$defs/digest" },
+        "signature": { "$ref": "#/$defs/base64url" }
+      }
+    },
+    "pqPayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "syngrapheReceipt",
+        "syngrapheReceiptDigest",
+        "cawgIdentityAssertionLinkDigest"
+      ],
+      "properties": {
+        "profile": { "const": "syngraphe.cawg-identity-pq-sibling.v1" },
+        "syngrapheReceipt": {
+          "$ref": "https://syngraphe.org/schemas/ai-interaction-receipt/v1.1"
+        },
+        "syngrapheReceiptDigest": { "$ref": "#/$defs/digest" },
+        "cawgIdentityAssertionLinkDigest": { "$ref": "#/$defs/digest" }
+      }
+    },
+    "pqSibling": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "algorithm",
+        "content_type",
+        "verification_method",
+        "payload",
+        "link_digest",
+        "artifact_digest",
+        "signature"
+      ],
+      "properties": {
+        "profile": { "const": "syngraphe.cawg-identity-pq-sibling.v1" },
+        "algorithm": { "const": -49 },
+        "content_type": { "const": "application/syngraphe+cose" },
+        "verification_method": { "$ref": "#/$defs/uri" },
+        "payload": { "$ref": "#/$defs/pqPayload" },
+        "link_digest": { "$ref": "#/$defs/digest" },
+        "artifact_digest": { "$ref": "#/$defs/digest" },
+        "signature": { "$ref": "#/$defs/base64url" }
+      }
+    },
+    "presentExtension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "critical", "artifact_schema", "artifact_digest"],
+      "properties": {
+        "state": { "const": "present" },
+        "critical": { "type": "boolean" },
+        "artifact_schema": { "$ref": "#/$defs/uri" },
+        "artifact_digest": { "$ref": "#/$defs/digest" }
+      }
+    },
+    "gapExtension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "critical", "gap"],
+      "properties": {
+        "state": { "const": "gap" },
+        "critical": { "type": "boolean" },
+        "gap": {
+          "$ref": "https://syngraphe.org/schemas/countersign-verification-gap/v1"
+        }
+      }
+    }
+  }
+}
